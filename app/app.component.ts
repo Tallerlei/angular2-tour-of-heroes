@@ -1,6 +1,7 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {HeroDetailComponent} from './hero-detail.component';
 import {Hero} from './hero';
+import {HeroService} from './hero.service';
 
 @Component({
     selector: 'my-app',
@@ -64,6 +65,7 @@ import {Hero} from './hero';
       }
     `],
     directives: [HeroDetailComponent],
+    providers: [HeroService],
 })
 
 /*
@@ -75,26 +77,25 @@ import {Hero} from './hero';
 </div>
 
  */
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+    // Constructor is needed to use HeroService, but is available in all child Components now
+    constructor(private _heroService:HeroService) { }
+
     title = 'Tour of Heroes';
-    heroes = HEROES;
+    heroes: Hero[];
     selectedHero: Hero;
 
     onSelect(hero: Hero){
         this.selectedHero = hero;
     }
 
-}
+    getHeroes() {
+        this._heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+    }
 
-var HEROES: Hero[] = [
-    { "id": 11, "name": "Mr. Nice" },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
-];
+    // Component Lifecycle Hook OnInit, OnChange, BeforeDestroy
+    ngOnInit() {
+        this.getHeroes();
+    }
+}
