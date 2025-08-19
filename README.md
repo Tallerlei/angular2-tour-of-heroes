@@ -1,58 +1,110 @@
-# Angular 2 QuickStart Source
+# Tour of Heroes - Angular Tutorial
 
-This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
-the foundation for most of the documentation samples and potentially a good starting point for your application.
+This repository contains the modernized version of the Angular Tour of Heroes tutorial application, updated to use Angular 16+ with modern patterns and build tools.
 
-## Create a new project based on the QuickStart
+![Tour of Heroes Application](https://github.com/user-attachments/assets/479ea5a6-1939-42ef-a070-4e6f28de3363)
 
-Clone this repo into new project folder (e.g., `my-proj`).
-```bash
-$ git clone  https://github.com/angular/quickstart  my-proj
-$ cd my-proj
+## Features
+
+- **Hero List**: Display a list of heroes with styled badges
+- **Hero Selection**: Click on any hero to view and edit details
+- **Hero Editing**: Two-way data binding allows real-time name editing
+- **Modern Angular**: Uses Angular 16 with modern component patterns
+- **Webpack Build**: Modern build pipeline with hot reload
+
+![Hero Selection and Editing](https://github.com/user-attachments/assets/af833654-a4d8-4b9c-a406-2423e6f73942)
+
+## What's Modern
+
+This updated version includes:
+
+- ✅ **Angular 16+** instead of Angular 2 beta
+- ✅ **Modern import paths** (`@angular/core` instead of `angular2/core`)  
+- ✅ **Updated template syntax** (`let hero` instead of `#hero`)
+- ✅ **Modern component patterns** (removed deprecated directives metadata)
+- ✅ **Webpack build system** for development and production
+- ✅ **TypeScript 5.1+** with modern configuration
+- ✅ **Zone.js integration** for change detection
+- ✅ **Modern service injection** with `providedIn: 'root'`
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js 16+ and npm
+
+### Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Tallerlei/angular2-tour-of-heroes.git
+   cd angular2-tour-of-heroes
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm start
+   ```
+   
+   The application will open at `http://localhost:3000` with hot reload enabled.
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+### Available Scripts
+
+- `npm start` - Start development server with hot reload
+- `npm run dev` - Same as start (alias)
+- `npm run build` - Build for production
+
+## Project Structure
+
+```
+app/
+├── app.component.ts      # Main app component with hero list
+├── app.module.ts         # Angular module configuration  
+├── hero-detail.component.ts # Hero detail/editing component
+├── hero.service.ts       # Hero data service
+├── hero.ts              # Hero model interface
+├── mock-heroes.ts       # Sample hero data
+└── main.ts              # Application bootstrap
+
+src/
+├── index.html           # Main HTML template
+└── styles.css          # Global styles
+
+webpack.config.js        # Webpack build configuration
+tsconfig.json           # TypeScript configuration
 ```
 
-We have no intention of updating the source on `angular/quickstart`.
-Discard everything "git-like" by deleting the `.git` folder.
-```bash
-$ rm -rf .git
-```
+## Tutorial Progress
 
-### Create a new git repo
-You could [start writing code](#start-development) now and throw it all away when you're done.
-If you'd rather preserve your work under source control, consider taking the following steps.
+This implementation covers the fundamental concepts from the Angular tutorial:
 
-Initialize this project as a *local git repo* and make the first commit:
-```bash
-$ git init
-$ git add .
-$ git commit -m "Initial commit"
-```
+- [x] Component architecture
+- [x] Data binding (interpolation, property, event, two-way)
+- [x] Directives (*ngFor, *ngIf, [class])
+- [x] Services and dependency injection
+- [x] Component communication (@Input)
+- [x] Lifecycle hooks (OnInit)
+- [x] Modern build tooling
 
-Create a *remote repository* for this project on the service of your choice.
+## Contributing
 
-Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*.
-```bash
-$ git remote add origin <repo-address>
-$ git push -u origin master
-```
-### Start development
+This repository is designed to stay in sync with the official Angular tutorial. When contributing:
 
-Install the npm packages described in the `package.json` and verify that it works:
+1. Ensure compatibility with modern Angular versions
+2. Follow Angular style guide recommendations  
+3. Maintain tutorial simplicity while using current best practices
+4. Test changes across different browsers
 
-```bash
-$ npm install
-$ npm start
-```
-You're ready to write your application.
+## License
 
-Remember the npm scripts in `package.json`:
-
-* `npm start` - runs the compiler and a server at the same time, both in "watch mode".
-* `npm run tsc` - runs the TypeScript compiler once.
-* `npm run tsc:w` - runs the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
-* `npm run lite` - runs the [lite-server](https://www.npmjs.com/package/lite-server), a light-weight, static file server, written and maintained by
-[John Papa](https://github.com/johnpapa) and
-[Christopher Martin](https://github.com/cgmartin)
-with excellent support for Angular apps that use routing.
-* `npm run typings` - runs the typings tool.
-* `npm run postinstall` - called by *npm* automatically *after* it successfully completes package installation. This script installs the TypeScript definition files this app requires.
+This project is licensed under the ISC License.
