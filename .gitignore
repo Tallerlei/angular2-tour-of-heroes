@@ -14,10 +14,9 @@ Thumbs.db
 *.swp
 *.swo
 
-# Old build artifacts
-typings/
-*.js
-*.js.map
+# Old compiled TypeScript files (only in app directory)
+app/*.js
+app/*.js.map
 
 # Temp directories
 app-compiled/
