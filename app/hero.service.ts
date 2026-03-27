@@ -1,16 +1,18 @@
-import {Injectable} from 'angular2/core';
-import {HEROES} from './mock-heroes';
-import {Hero} from './hero';
+import { Injectable } from '@angular/core';
+import { HEROES } from './mock-heroes';
+import { Hero } from './hero';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HeroService {
-    getHeroes() {
-        return Promise.resolve(HEROES);
-    }
+  getHeroes(): Promise<Hero[]> {
+    return Promise.resolve(HEROES);
+  }
 
-    getHeroesSlowly() {
-        return new Promise<Hero[]>(resolve =>
-            setTimeout(() => resolve(HEROES), 2000) // 2 seconds
-            );
-    }
+  getHeroesSlowly(): Promise<Hero[]> {
+    return new Promise<Hero[]>(resolve =>
+      setTimeout(() => resolve(this.getHeroes()), 2000)
+    );
+  }
 }
