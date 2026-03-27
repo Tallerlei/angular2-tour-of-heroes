@@ -2,6 +2,8 @@
 
 This repository contains the modernized version of the Angular Tour of Heroes tutorial application, updated to use Angular 16+ with modern patterns and build tools.
 
+🚀 **Live Demo**: [https://tallerlei.github.io/angular2-tour-of-heroes/](https://tallerlei.github.io/angular2-tour-of-heroes/)
+
 ![Tour of Heroes Application](https://github.com/user-attachments/assets/479ea5a6-1939-42ef-a070-4e6f28de3363)
 
 ## Features
