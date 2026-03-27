@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const publicPath = process.env.PUBLIC_PATH || '/';
+
 module.exports = {
   entry: './app/main.ts',
   module: {
@@ -22,6 +24,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: publicPath,
     clean: true,
   },
   plugins: [
